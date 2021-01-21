@@ -21,7 +21,7 @@ signal piece_taken(object)
 
 func _ready():
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
-	piece_taken_check.connect("white_piece_taken", self, "piece_taken")
+	piece_taken_check.connect("black_piece_taken", self, "piece_taken")
 	direction = Vector2()
 	grid = get_parent()
 	type = get_parent().PLAYER
@@ -44,7 +44,7 @@ func _physics_process(delta):
 			infotransfer.selected = null
 			yield(get_tree().create_timer(0.1), "timeout")
 			$KillCast.enabled = false
-			infotransfer.turn = "black"
+			infotransfer.turn = "white"
 			direction = Vector2()
 
 func select():
@@ -56,7 +56,7 @@ func select():
 		$Sprite.set_modulate(Color(1, 1, 1, 1))
 
 func handle_turns():
-	if infotransfer.turn == "white":
+	if infotransfer.turn == "black":
 		update_areas()
 		$Area2D/CollisionShape2D.disabled = false
 	else:
@@ -71,7 +71,7 @@ func update_areas():
 	for i in $TopRight.get_children():
 		i.force_raycast_update()
 		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_N == 0:
+			if i.get_collider().is_in_group("WhitePiece") and total_collisions_N == 0:
 				total_collisions_N += 1
 				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 			else:
@@ -87,7 +87,7 @@ func update_areas():
 	for i in $TopLeft.get_children():
 		i.force_raycast_update()
 		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_W == 0:
+			if i.get_collider().is_in_group("WhitePiece") and total_collisions_W == 0:
 				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 				total_collisions_W += 1
 			else:
@@ -103,7 +103,7 @@ func update_areas():
 	for i in $BottomRight.get_children():
 		i.force_raycast_update()
 		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_E == 0:
+			if i.get_collider().is_in_group("WhitePiece") and total_collisions_E == 0:
 				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 				total_collisions_E += 1
 			else:
@@ -119,7 +119,7 @@ func update_areas():
 	for i in $BottomLeft.get_children():
 		i.force_raycast_update()
 		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_S == 0:
+			if i.get_collider().is_in_group("WhitePiece") and total_collisions_S == 0:
 				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 				total_collisions_E += 1
 			else:
