@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Pieces/WhitePawn.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Pieces/WhiteBishop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Pieces/BlackBishop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Pieces/WhiteRook.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 253.94, 18.7661 )
@@ -100,20 +101,25 @@ position = Vector2( 479.554, 99.5335 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 159.085, 349.235 )
+position = Vector2( 160.672, 480.989 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 352.541, 350.026 )
+visible = false
+position = Vector2( 350.954, 478.606 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 158.775, 160.293 )
+position = Vector2( 159.569, 30.9197 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop2" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 353.232, 161.88 )
+position = Vector2( 350.851, 29.3319 )
 scale = Vector2( 2, 2 )
+
+[node name="WhiteRook" parent="TileMap" instance=ExtResource( 10 )]
+position = Vector2( 478.061, 480.44 )
+scale = Vector2( 1.42, 1.42 )
 
 [node name="EnPassantArea_WhitePawn" type="Area2D" parent="."]
 visible = false
