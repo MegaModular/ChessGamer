@@ -109,7 +109,6 @@ func select():
 	if mouse_in_area and Input.is_action_just_pressed("LMB"):
 		infotransfer.selected = self
 		$Sprite.set_modulate(Color(0.5, 1, 1, 1))
-		print(infotransfer.selected)
 	if not infotransfer.selected == self:
 		$Sprite.set_modulate(Color(1, 1, 1, 1))
 

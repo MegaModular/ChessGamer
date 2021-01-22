@@ -30,20 +30,18 @@ func _ready():
 func _process(_delta):
 	select()
 	handle_turns()
-
+ 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB") and infotransfer.selected == self:
-		#Put conditions here
 		if infotransfer.selected == self and Input.is_action_just_pressed("LMB") and not direction == Vector2():
 			var target_pos = grid.update_child_pos(self)
 			self.position = target_pos
 			$KillCast.force_raycast_update()
-			$KillCast.enabled = true
+			print($KillCast.get_collider())
 			if $KillCast.is_colliding():
 				emit_signal("piece_taken", $KillCast.get_collider())
 			infotransfer.selected = null
 			yield(get_tree().create_timer(0.1), "timeout")
-			$KillCast.enabled = false
 			infotransfer.turn = "black"
 			direction = Vector2()
 
@@ -51,7 +49,6 @@ func select():
 	if mouse_in_area and Input.is_action_just_pressed("LMB"):
 		infotransfer.selected = self
 		$Sprite.set_modulate(Color(0.5, 1, 1, 1))
-		print(infotransfer.selected)
 	if not infotransfer.selected == self:
 		$Sprite.set_modulate(Color(1, 1, 1, 1))
 
@@ -73,7 +70,10 @@ func update_areas():
 		if i.is_colliding():
 			if i.get_collider().is_in_group("BlackPiece") and total_collisions_N == 0:
 				total_collisions_N += 1
-				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				var xxx = i.get_children()
+				var yyy = xxx[0].get_children()
+				yyy[0].disabled = false
+				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 			else:
 				var xxx = i.get_children()
 				var yyy = xxx[0].get_children()
@@ -88,7 +88,10 @@ func update_areas():
 		i.force_raycast_update()
 		if i.is_colliding():
 			if i.get_collider().is_in_group("BlackPiece") and total_collisions_W == 0:
-				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				var xxx = i.get_children()
+				var yyy = xxx[0].get_children()
+				yyy[0].disabled = false
 				total_collisions_W += 1
 			else:
 				var xxx = i.get_children()
@@ -104,7 +107,10 @@ func update_areas():
 		i.force_raycast_update()
 		if i.is_colliding():
 			if i.get_collider().is_in_group("BlackPiece") and total_collisions_E == 0:
-				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				var xxx = i.get_children()
+				var yyy = xxx[0].get_children()
+				yyy[0].disabled = false
+				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
 				total_collisions_E += 1
 			else:
 				var xxx = i.get_children()
@@ -120,7 +126,9 @@ func update_areas():
 		i.force_raycast_update()
 		if i.is_colliding():
 			if i.get_collider().is_in_group("BlackPiece") and total_collisions_S == 0:
-				direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				var xxx = i.get_children()
+				var yyy = xxx[0].get_children()
+				yyy[0].disabled = false
 				total_collisions_E += 1
 			else:
 				var xxx = i.get_children()

@@ -40,6 +40,7 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 0, 0, 2, 1, 0, 3, 0, 0, 4, 1, 0, 5, 0, 0, 
 script = ExtResource( 3 )
 
 [node name="GridVisualizer" type="Node2D" parent="TileMap"]
+visible = false
 script = ExtResource( 4 )
 
 [node name="WhitePawn" parent="TileMap" instance=ExtResource( 2 )]
@@ -99,19 +100,19 @@ position = Vector2( 479.554, 99.5335 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 159.085, 477.524 )
+position = Vector2( 159.085, 349.235 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 351.65, 479.206 )
+position = Vector2( 352.541, 350.026 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 351.65, 30.6739 )
+position = Vector2( 158.775, 160.293 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop2" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 159.867, 29.9483 )
+position = Vector2( 353.232, 161.88 )
 scale = Vector2( 2, 2 )
 
 [node name="EnPassantArea_WhitePawn" type="Area2D" parent="."]
