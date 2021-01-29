@@ -16,12 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Chess"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Infotransfer="*res://Assets/Infotransfer.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 

@@ -26,6 +26,7 @@ func _ready():
 	grid = get_parent()
 	type = get_parent().PLAYER
 	update_areas()
+	turn_off_sprites()
 
 func _process(_delta):
 	select()
@@ -41,6 +42,7 @@ func _physics_process(delta):
 			if $KillCast.is_colliding():
 				emit_signal("piece_taken", $KillCast.get_collider())
 			infotransfer.selected = null
+			$MoveSound.play()
 			yield(get_tree().create_timer(0.1), "timeout")
 			infotransfer.turn = "black"
 			direction = Vector2()
@@ -50,13 +52,34 @@ func select():
 		infotransfer.selected = self
 		$Sprite.set_modulate(Color(0.5, 1, 1, 1))
 	if not infotransfer.selected == self:
+		turn_off_sprites()
 		$Sprite.set_modulate(Color(1, 1, 1, 1))
+
+func turn_off_sprites():
+	for i in $TopRight.get_children():
+		var ye = i.get_children()
+		var p = ye[0].get_children()
+		p[1].visible = false
+	for i in $TopLeft.get_children():
+		var ye = i.get_children()
+		var p = ye[0].get_children()
+		p[1].visible = false
+	for i in $BottomRight.get_children():
+		var ye = i.get_children()
+		var p = ye[0].get_children()
+		p[1].visible = false
+	for i in $BottomLeft.get_children():
+		var ye = i.get_children()
+		var p = ye[0].get_children()
+		p[1].visible = false
+
 
 func handle_turns():
 	if infotransfer.turn == "white":
 		update_areas()
 		$Area2D/CollisionShape2D.disabled = false
 	else:
+		turn_off_sprites()
 		$Area2D/CollisionShape2D.disabled = true
 
 var total_collisions_N : int
@@ -64,81 +87,94 @@ var total_collisions_E : int ### W/N
 var total_collisions_S : int ### S/E
 var total_collisions_W : int 
 
-func update_areas():
-	for i in $TopRight.get_children():
-		i.force_raycast_update()
-		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_N == 0:
-				total_collisions_N += 1
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = false
-				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+func update_areas():\
+	if infotransfer.selected == self:
+		for i in $TopRight.get_children():
+			i.force_raycast_update()
+			if i.is_colliding():
+				if i.get_collider().is_in_group("BlackPiece") and total_collisions_N == 0:
+					total_collisions_N += 1
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = false
+					yyy[1].visible = true
+					#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+				else:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = true
+					yyy[1].visible  = false
 			else:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = true
-		else:
-			var yee = i.get_children()
-			var pee = yee[0].get_children()
-			pee[0].disabled = false
-	total_collisions_N = 0 
-	
-	for i in $TopLeft.get_children():
-		i.force_raycast_update()
-		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_W == 0:
-				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = false
-				total_collisions_W += 1
+				var yee = i.get_children()
+				var pee = yee[0].get_children()
+				pee[0].disabled = false
+				pee[1].visible = true
+		total_collisions_N = 0 
+		
+		for i in $TopLeft.get_children():
+			i.force_raycast_update()
+			if i.is_colliding():
+				if i.get_collider().is_in_group("BlackPiece") and total_collisions_W == 0:
+					#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = false
+					yyy[1].visible = true
+					total_collisions_W += 1
+				else:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = true
+					yyy[1].visible = false
 			else:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = true
-		else:
-			var yee = i.get_children()
-			var pee = yee[0].get_children()
-			pee[0].disabled = false
-	total_collisions_W = 0
-	
-	for i in $BottomRight.get_children():
-		i.force_raycast_update()
-		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_E == 0:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = false
-				#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
-				total_collisions_E += 1
+				var yee = i.get_children()
+				var pee = yee[0].get_children()
+				pee[0].disabled = false
+				pee[1].visible = true
+		total_collisions_W = 0
+		
+		for i in $BottomRight.get_children():
+			i.force_raycast_update()
+			if i.is_colliding():
+				if i.get_collider().is_in_group("BlackPiece") and total_collisions_E == 0:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = false
+					yyy[1].visible = true
+					#direction = grid.world_to_map(i.get_collision_point()) - grid.world_to_map(Vector2(self.global_position))
+					total_collisions_E += 1
+				else:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = true
+					yyy[1].visible = false
 			else:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = true
-		else:
-			var yee = i.get_children()
-			var pee = yee[0].get_children()
-			pee[0].disabled = false
-	total_collisions_E = 0
-	
-	for i in $BottomLeft.get_children():
-		i.force_raycast_update()
-		if i.is_colliding():
-			if i.get_collider().is_in_group("BlackPiece") and total_collisions_S == 0:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = false
-				total_collisions_E += 1
+				var yee = i.get_children()
+				var pee = yee[0].get_children()
+				pee[0].disabled = false
+				pee[1].visible = true
+		total_collisions_E = 0
+		
+		for i in $BottomLeft.get_children():
+			i.force_raycast_update()
+			if i.is_colliding():
+				if i.get_collider().is_in_group("BlackPiece") and total_collisions_S == 0:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = false
+					yyy[1].visible = true
+					total_collisions_S += 1
+				else:
+					var xxx = i.get_children()
+					var yyy = xxx[0].get_children()
+					yyy[0].disabled = true
+					yyy[1].visible = false
 			else:
-				var xxx = i.get_children()
-				var yyy = xxx[0].get_children()
-				yyy[0].disabled = true
-		else:
-			var yee = i.get_children()
-			var pee = yee[0].get_children()
-			pee[0].disabled = false
-	total_collisions_E = 0 
+				var yee = i.get_children()
+				var pee = yee[0].get_children()
+				pee[0].disabled = false
+				pee[1].visible = true
+		total_collisions_S = 0 
 
 func piece_taken(obj):
 	if self == obj:

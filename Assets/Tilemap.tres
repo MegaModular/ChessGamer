@@ -6,7 +6,7 @@
 0/name = "Sprite"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 0.183594, 0.183594, 0.183594, 1 )
+0/modulate = Color( 0.427451, 0.427451, 0.427451, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 32, 32 )

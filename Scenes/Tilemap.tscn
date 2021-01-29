@@ -7,7 +7,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.183594, 0.183594, 0.183594, 1 )
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
 self_modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
 material = SubResource( 1 )
 texture = ExtResource( 1 )

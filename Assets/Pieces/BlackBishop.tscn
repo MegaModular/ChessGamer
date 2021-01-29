@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Pieces/BlackBishop.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Bishop.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/LocationMove.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/move.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 13.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11.5243, 14.4157 )
@@ -14,7 +17,7 @@ extents = Vector2( 13, 13 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 13, 13 )
 
-[node name="Bishop" type="KinematicBody2D" groups=[
+[node name="BlackBishop" type="KinematicBody2D" groups=[
 "BlackPiece",
 ]]
 script = ExtResource( 1 )
@@ -45,6 +48,11 @@ cast_to = Vector2( 30, -30 )
 position = Vector2( 31.5, -31.5 )
 shape = SubResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="TopRight/RayCast1/Area1"]
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast2" type="RayCast2D" parent="TopRight"]
 enabled = true
 cast_to = Vector2( 60, -60 )
@@ -54,6 +62,11 @@ cast_to = Vector2( 60, -60 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast2/Area2"]
 position = Vector2( 63, -63 )
 shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="TopRight/RayCast2/Area2"]
+position = Vector2( 63, -63 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast3" type="RayCast2D" parent="TopRight"]
 enabled = true
@@ -65,9 +78,14 @@ cast_to = Vector2( 90, -90 )
 position = Vector2( 95, -95 )
 shape = SubResource( 4 )
 
+[node name="Sprite3" type="Sprite" parent="TopRight/RayCast3/Area3"]
+position = Vector2( 95, -95 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast4" type="RayCast2D" parent="TopRight"]
 enabled = true
-cast_to = Vector2( 120, -120 )
+cast_to = Vector2( 130, -130 )
 
 [node name="Area4" type="Area2D" parent="TopRight/RayCast4"]
 
@@ -75,15 +93,25 @@ cast_to = Vector2( 120, -120 )
 position = Vector2( 128, -128 )
 shape = SubResource( 4 )
 
+[node name="Sprite4" type="Sprite" parent="TopRight/RayCast4/Area4"]
+position = Vector2( 128, -128 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast5" type="RayCast2D" parent="TopRight"]
 enabled = true
-cast_to = Vector2( 150, -150 )
+cast_to = Vector2( 160, -160 )
 
 [node name="Area5" type="Area2D" parent="TopRight/RayCast5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast5/Area5"]
 position = Vector2( 159, -159 )
 shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="TopRight/RayCast5/Area5"]
+position = Vector2( 159, -159 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast6" type="RayCast2D" parent="TopRight"]
 enabled = true
@@ -95,6 +123,11 @@ cast_to = Vector2( 190, -190 )
 position = Vector2( 191.362, -191.362 )
 shape = SubResource( 4 )
 
+[node name="Sprite6" type="Sprite" parent="TopRight/RayCast6/Area6"]
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast7" type="RayCast2D" parent="TopRight"]
 enabled = true
 cast_to = Vector2( 220, -220 )
@@ -104,6 +137,11 @@ cast_to = Vector2( 220, -220 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast7/Area7"]
 position = Vector2( 222, -222 )
 shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="TopRight/RayCast7/Area7"]
+position = Vector2( 222, -222 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="BottomRight" type="Node2D" parent="."]
 rotation = 1.5708
@@ -118,6 +156,11 @@ cast_to = Vector2( 30, -30 )
 position = Vector2( 31.5, -31.5 )
 shape = SubResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="BottomRight/RayCast1/Area11"]
+position = Vector2( 31.981, -31.5001 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast2" type="RayCast2D" parent="BottomRight"]
 enabled = true
 cast_to = Vector2( 60, -60 )
@@ -127,6 +170,11 @@ cast_to = Vector2( 60, -60 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast2/Area12"]
 position = Vector2( 63, -63 )
 shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="BottomRight/RayCast2/Area12"]
+position = Vector2( 63.4789, -63.0002 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast3" type="RayCast2D" parent="BottomRight"]
 enabled = true
@@ -138,9 +186,14 @@ cast_to = Vector2( 90, -90 )
 position = Vector2( 95, -95 )
 shape = SubResource( 4 )
 
+[node name="Sprite3" type="Sprite" parent="BottomRight/RayCast3/Area13"]
+position = Vector2( 94.9768, -95.0003 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast4" type="RayCast2D" parent="BottomRight"]
 enabled = true
-cast_to = Vector2( 120, -120 )
+cast_to = Vector2( 130, -130 )
 
 [node name="Area14" type="Area2D" parent="BottomRight/RayCast4"]
 
@@ -148,15 +201,25 @@ cast_to = Vector2( 120, -120 )
 position = Vector2( 128, -128 )
 shape = SubResource( 4 )
 
+[node name="Sprite4" type="Sprite" parent="BottomRight/RayCast4/Area14"]
+position = Vector2( 128.05, -128 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast5" type="RayCast2D" parent="BottomRight"]
 enabled = true
-cast_to = Vector2( 150, -150 )
+cast_to = Vector2( 160, -160 )
 
 [node name="Area15" type="Area2D" parent="BottomRight/RayCast5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast5/Area15"]
 position = Vector2( 159, -159 )
 shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="BottomRight/RayCast5/Area15"]
+position = Vector2( 158.969, -159.001 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast6" type="RayCast2D" parent="BottomRight"]
 enabled = true
@@ -168,6 +231,11 @@ cast_to = Vector2( 190, -190 )
 position = Vector2( 191.362, -191.362 )
 shape = SubResource( 4 )
 
+[node name="Sprite6" type="Sprite" parent="BottomRight/RayCast6/Area16"]
+position = Vector2( 191.672, -191.363 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast7" type="RayCast2D" parent="BottomRight"]
 enabled = true
 cast_to = Vector2( 220, -220 )
@@ -177,6 +245,11 @@ cast_to = Vector2( 220, -220 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast7/Area17"]
 position = Vector2( 222, -222 )
 shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="BottomRight/RayCast7/Area17"]
+position = Vector2( 221.997, -222.001 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="BottomLeft" type="Node2D" parent="."]
 rotation = 3.14159
@@ -191,6 +264,11 @@ cast_to = Vector2( 30, -30 )
 position = Vector2( 31.5, -31.5 )
 shape = SubResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="BottomLeft/RayCast1/Area21"]
+position = Vector2( 31.8391, -31.0898 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast2" type="RayCast2D" parent="BottomLeft"]
 enabled = true
 cast_to = Vector2( 60, -60 )
@@ -200,6 +278,11 @@ cast_to = Vector2( 60, -60 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast2/Area22"]
 position = Vector2( 63, -63 )
 shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="BottomLeft/RayCast2/Area22"]
+position = Vector2( 62.9291, -62.5542 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast3" type="RayCast2D" parent="BottomLeft"]
 enabled = true
@@ -211,9 +294,14 @@ cast_to = Vector2( 90, -90 )
 position = Vector2( 95, -95 )
 shape = SubResource( 4 )
 
+[node name="Sprite3" type="Sprite" parent="BottomLeft/RayCast3/Area23"]
+position = Vector2( 95.1025, -95.081 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast4" type="RayCast2D" parent="BottomLeft"]
 enabled = true
-cast_to = Vector2( 120, -120 )
+cast_to = Vector2( 130, -130 )
 
 [node name="Area24" type="Area2D" parent="BottomLeft/RayCast4"]
 
@@ -221,15 +309,25 @@ cast_to = Vector2( 120, -120 )
 position = Vector2( 128, -128 )
 shape = SubResource( 4 )
 
+[node name="Sprite4" type="Sprite" parent="BottomLeft/RayCast4/Area24"]
+position = Vector2( 127.983, -127.608 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast5" type="RayCast2D" parent="BottomLeft"]
 enabled = true
-cast_to = Vector2( 150, -150 )
+cast_to = Vector2( 160, -160 )
 
 [node name="Area25" type="Area2D" parent="BottomLeft/RayCast5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast5/Area25"]
 position = Vector2( 159, -159 )
 shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="BottomLeft/RayCast5/Area25"]
+position = Vector2( 158.389, -159.074 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast6" type="RayCast2D" parent="BottomLeft"]
 enabled = true
@@ -241,6 +339,11 @@ cast_to = Vector2( 190, -190 )
 position = Vector2( 191.362, -191.362 )
 shape = SubResource( 4 )
 
+[node name="Sprite6" type="Sprite" parent="BottomLeft/RayCast6/Area26"]
+position = Vector2( 191.269, -191.247 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast7" type="RayCast2D" parent="BottomLeft"]
 enabled = true
 cast_to = Vector2( 220, -220 )
@@ -250,6 +353,11 @@ cast_to = Vector2( 220, -220 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast7/Area27"]
 position = Vector2( 222, -222 )
 shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="BottomLeft/RayCast7/Area27"]
+position = Vector2( 222.029, -222.006 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="TopLeft" type="Node2D" parent="."]
 rotation = 4.71239
@@ -264,6 +372,11 @@ cast_to = Vector2( 30, -30 )
 position = Vector2( 31.5, -31.5 )
 shape = SubResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="TopLeft/RayCast1/Area31"]
+position = Vector2( 31.5, -32.0724 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast2" type="RayCast2D" parent="TopLeft"]
 enabled = true
 cast_to = Vector2( 60, -60 )
@@ -273,6 +386,11 @@ cast_to = Vector2( 60, -60 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast2/Area32"]
 position = Vector2( 63, -63 )
 shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="TopLeft/RayCast2/Area32"]
+position = Vector2( 62.9999, -63.6993 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast3" type="RayCast2D" parent="TopLeft"]
 enabled = true
@@ -284,9 +402,14 @@ cast_to = Vector2( 90, -90 )
 position = Vector2( 95, -95 )
 shape = SubResource( 4 )
 
+[node name="Sprite3" type="Sprite" parent="TopLeft/RayCast3/Area33"]
+position = Vector2( 94.9999, -94.8808 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast4" type="RayCast2D" parent="TopLeft"]
 enabled = true
-cast_to = Vector2( 120, -120 )
+cast_to = Vector2( 130, -130 )
 
 [node name="Area34" type="Area2D" parent="TopLeft/RayCast4"]
 
@@ -294,15 +417,25 @@ cast_to = Vector2( 120, -120 )
 position = Vector2( 128, -128 )
 shape = SubResource( 4 )
 
+[node name="Sprite4" type="Sprite" parent="TopLeft/RayCast4/Area34"]
+position = Vector2( 128, -128.29 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast5" type="RayCast2D" parent="TopLeft"]
 enabled = true
-cast_to = Vector2( 150, -150 )
+cast_to = Vector2( 160, -160 )
 
 [node name="Area35" type="Area2D" parent="TopLeft/RayCast5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast5/Area35"]
 position = Vector2( 159, -159 )
 shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="TopLeft/RayCast5/Area35"]
+position = Vector2( 159, -159.325 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
 
 [node name="RayCast6" type="RayCast2D" parent="TopLeft"]
 enabled = true
@@ -314,6 +447,11 @@ cast_to = Vector2( 190, -190 )
 position = Vector2( 191.362, -191.362 )
 shape = SubResource( 4 )
 
+[node name="Sprite6" type="Sprite" parent="TopLeft/RayCast6/Area36"]
+position = Vector2( 191.362, -191.695 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
 [node name="RayCast7" type="RayCast2D" parent="TopLeft"]
 enabled = true
 cast_to = Vector2( 220, -220 )
@@ -324,10 +462,20 @@ cast_to = Vector2( 220, -220 )
 position = Vector2( 222, -222 )
 shape = SubResource( 4 )
 
-[node name="le_kill" type="RayCast2D" parent="."]
-position = Vector2( -0.166855, -13.0147 )
+[node name="Sprite7" type="Sprite" parent="TopLeft/RayCast7/Area37"]
+position = Vector2( 222, -222.396 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="KillCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -13.5862 )
 enabled = true
 cast_to = Vector2( 0, 20 )
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+pitch_scale = 0.8
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="mouse_entered" from="TopRight/RayCast1/Area1" to="." method="_on_Area1_mouse_entered"]

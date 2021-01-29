@@ -1,0 +1,1219 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Queen.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pieces/WhiteQueen.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/LocationMove.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/move.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.5243, 14.4157 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13, 13 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 13, 13 )
+
+[node name="WhiteQueen" type="KinematicBody2D" groups=[
+"WhitePiece",
+]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.412 )
+scale = Vector2( 1.42892, 1.43985 )
+texture = ExtResource( 1 )
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.117989, 0.943874 )
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 2 )
+
+[node name="Right" type="Node2D" parent="."]
+rotation = 0.785398
+
+[node name="RayCast1" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area1" type="Area2D" parent="Right/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast1/Area1"]
+position = Vector2( 31.5, -31.5 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Right/RayCast1/Area1"]
+visible = false
+position = Vector2( 31.1834, -31.1834 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area2" type="Area2D" parent="Right/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast2/Area2"]
+position = Vector2( 63, -63 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="Right/RayCast2/Area2"]
+visible = false
+position = Vector2( 63.0342, -61.6994 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 90, -90 )
+
+[node name="Area3" type="Area2D" parent="Right/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast3/Area3"]
+position = Vector2( 95, -95 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Right/RayCast3/Area3"]
+visible = false
+position = Vector2( 94.7126, -93.3778 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area4" type="Area2D" parent="Right/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast4/Area4"]
+position = Vector2( 128, -128 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="Right/RayCast4/Area4"]
+visible = false
+position = Vector2( 128.129, -128.129 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area5" type="Area2D" parent="Right/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast5/Area5"]
+position = Vector2( 159, -159 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="Right/RayCast5/Area5"]
+visible = false
+position = Vector2( 159.762, -159.762 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area6" type="Area2D" parent="Right/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast6/Area6"]
+position = Vector2( 191.362, -191.362 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="Right/RayCast6/Area6"]
+visible = false
+position = Vector2( 192.034, -192.034 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="Right"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area7" type="Area2D" parent="Right/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/RayCast7/Area7"]
+position = Vector2( 222, -222 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="Right/RayCast7/Area7"]
+visible = false
+position = Vector2( 221.766, -221.766 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="TopRight" type="Node2D" parent="."]
+scale = Vector2( 1.4, 1.4 )
+
+[node name="RayCast1" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area41" type="Area2D" parent="TopRight/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast1/Area41"]
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="TopRight/RayCast1/Area41"]
+visible = false
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area42" type="Area2D" parent="TopRight/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast2/Area42"]
+position = Vector2( 63, -63 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="TopRight/RayCast2/Area42"]
+visible = false
+position = Vector2( 63, -63 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="TopRight"]
+scale = Vector2( 1.05306, 1.04903 )
+enabled = true
+cast_to = Vector2( 100, -100 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area43" type="Area2D" parent="TopRight/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast3/Area43"]
+position = Vector2( 95, -95 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="TopRight/RayCast3/Area43"]
+visible = false
+position = Vector2( 95, -95 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area44" type="Area2D" parent="TopRight/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast4/Area44"]
+position = Vector2( 128, -128 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="TopRight/RayCast4/Area44"]
+visible = false
+position = Vector2( 128, -128 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area45" type="Area2D" parent="TopRight/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast5/Area45"]
+position = Vector2( 159, -159 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="TopRight/RayCast5/Area45"]
+visible = false
+position = Vector2( 159, -159 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area46" type="Area2D" parent="TopRight/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast6/Area46"]
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="TopRight/RayCast6/Area46"]
+visible = false
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="TopRight"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area47" type="Area2D" parent="TopRight/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight/RayCast7/Area47"]
+position = Vector2( 222, -222 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="TopRight/RayCast7/Area47"]
+visible = false
+position = Vector2( 222, -222 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="BottomRight" type="Node2D" parent="."]
+rotation = 1.57079
+scale = Vector2( 1.4, 1.4 )
+
+[node name="RayCast1" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area51" type="Area2D" parent="BottomRight/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast1/Area51"]
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="BottomRight/RayCast1/Area51"]
+visible = false
+position = Vector2( 31.2259, -31.4998 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area52" type="Area2D" parent="BottomRight/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast2/Area52"]
+position = Vector2( 63, -63 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="BottomRight/RayCast2/Area52"]
+visible = false
+position = Vector2( 63.0459, -62.9996 )
+rotation = 5.68434e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 100, -100 )
+
+[node name="Area53" type="Area2D" parent="BottomRight/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast3/Area53"]
+position = Vector2( 95, -95 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="BottomRight/RayCast3/Area53"]
+visible = false
+position = Vector2( 94.8851, -94.9994 )
+rotation = 5.68434e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area54" type="Area2D" parent="BottomRight/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast4/Area54"]
+position = Vector2( 128, -128 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="BottomRight/RayCast4/Area54"]
+visible = false
+position = Vector2( 128.062, -127.999 )
+rotation = 1.13687e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area55" type="Area2D" parent="BottomRight/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast5/Area55"]
+position = Vector2( 159, -159 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="BottomRight/RayCast5/Area55"]
+visible = false
+position = Vector2( 158.831, -158.999 )
+rotation = 1.7053e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area56" type="Area2D" parent="BottomRight/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast6/Area56"]
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="BottomRight/RayCast6/Area56"]
+visible = false
+position = Vector2( 191.473, -191.361 )
+rotation = 2.27374e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="BottomRight"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area57" type="Area2D" parent="BottomRight/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight/RayCast7/Area57"]
+position = Vector2( 222, -222 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="BottomRight/RayCast7/Area57"]
+visible = false
+position = Vector2( 221.974, -221.999 )
+rotation = 3.41061e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="BottomLeft" type="Node2D" parent="."]
+rotation = 3.14159
+scale = Vector2( 1.4, 1.4 )
+
+[node name="RayCast1" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area61" type="Area2D" parent="BottomLeft/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast1/Area61"]
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="BottomLeft/RayCast1/Area61"]
+visible = false
+position = Vector2( 31.4646, -31.7479 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area62" type="Area2D" parent="BottomLeft/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast2/Area62"]
+position = Vector2( 63, -63 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="BottomLeft/RayCast2/Area62"]
+visible = false
+position = Vector2( 62.9293, -63.2124 )
+rotation = 2.84217e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 100, -100 )
+
+[node name="Area63" type="Area2D" parent="BottomLeft/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast3/Area63"]
+position = Vector2( 95, -95 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="BottomLeft/RayCast3/Area63"]
+visible = false
+position = Vector2( 94.9608, -95.2438 )
+rotation = 2.84217e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area64" type="Area2D" parent="BottomLeft/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast4/Area64"]
+position = Vector2( 128, -128 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="BottomLeft/RayCast4/Area64"]
+visible = false
+position = Vector2( 127.843, -128.409 )
+rotation = 5.68434e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area65" type="Area2D" parent="BottomLeft/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast5/Area65"]
+position = Vector2( 159, -159 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="BottomLeft/RayCast5/Area65"]
+visible = false
+position = Vector2( 158.74, -159.023 )
+rotation = 8.52651e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area66" type="Area2D" parent="BottomLeft/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast6/Area66"]
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="BottomLeft/RayCast6/Area66"]
+visible = false
+position = Vector2( 191.475, -191.157 )
+rotation = 1.13687e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="BottomLeft"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area67" type="Area2D" parent="BottomLeft/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft/RayCast7/Area67"]
+position = Vector2( 222, -222 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="BottomLeft/RayCast7/Area67"]
+visible = false
+position = Vector2( 222.108, -221.79 )
+rotation = 1.7053e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="TopLeft" type="Node2D" parent="."]
+rotation = 4.71238
+scale = Vector2( 1.4, 1.4 )
+
+[node name="RayCast1" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area71" type="Area2D" parent="TopLeft/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast1/Area71"]
+position = Vector2( 31.5, -31.5 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="TopLeft/RayCast1/Area71"]
+visible = false
+position = Vector2( 31.5003, -31.4993 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area72" type="Area2D" parent="TopLeft/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast2/Area72"]
+position = Vector2( 63, -63 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="TopLeft/RayCast2/Area72"]
+visible = false
+position = Vector2( 63.0006, -62.9987 )
+rotation = 5.68434e-13
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 100, -100 )
+
+[node name="Area73" type="Area2D" parent="TopLeft/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast3/Area73"]
+position = Vector2( 95, -95 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="TopLeft/RayCast3/Area73"]
+visible = false
+position = Vector2( 95.0009, -95.1326 )
+rotation = 1.13687e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area74" type="Area2D" parent="TopLeft/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast4/Area74"]
+position = Vector2( 128, -128 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="TopLeft/RayCast4/Area74"]
+visible = false
+position = Vector2( 128.001, -128.168 )
+rotation = 2.84217e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area75" type="Area2D" parent="TopLeft/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast5/Area75"]
+position = Vector2( 159, -159 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="TopLeft/RayCast5/Area75"]
+visible = false
+position = Vector2( 159.001, -159.1 )
+rotation = 3.97904e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area76" type="Area2D" parent="TopLeft/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast6/Area76"]
+position = Vector2( 191.362, -191.362 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="TopLeft/RayCast6/Area76"]
+visible = false
+position = Vector2( 191.364, -191.534 )
+rotation = 5.11591e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="TopLeft"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area77" type="Area2D" parent="TopLeft/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft/RayCast7/Area77"]
+position = Vector2( 222, -222 )
+scale = Vector2( 0.85, 0.85 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="TopLeft/RayCast7/Area77"]
+visible = false
+position = Vector2( 222.002, -222.167 )
+rotation = 5.68434e-12
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="Bottom" type="Node2D" parent="."]
+rotation = 2.35619
+
+[node name="RayCast1" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area11" type="Area2D" parent="Bottom/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast1/Area11"]
+position = Vector2( 31.5, -31.5 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Bottom/RayCast1/Area11"]
+visible = false
+position = Vector2( 31.5497, -31.5494 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area12" type="Area2D" parent="Bottom/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast2/Area12"]
+position = Vector2( 63, -63 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="Bottom/RayCast2/Area12"]
+visible = false
+position = Vector2( 63.016, -63.1823 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 90, -90 )
+
+[node name="Area13" type="Area2D" parent="Bottom/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast3/Area13"]
+position = Vector2( 95, -95 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Bottom/RayCast3/Area13"]
+visible = false
+position = Vector2( 94.5996, -94.5988 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area14" type="Area2D" parent="Bottom/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast4/Area14"]
+position = Vector2( 128, -128 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="Bottom/RayCast4/Area14"]
+visible = false
+position = Vector2( 128.016, -128.182 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area15" type="Area2D" parent="Bottom/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast5/Area15"]
+position = Vector2( 159, -159 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="Bottom/RayCast5/Area15"]
+visible = false
+position = Vector2( 158.766, -158.932 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area16" type="Area2D" parent="Bottom/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast6/Area16"]
+position = Vector2( 191.362, -191.362 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="Bottom/RayCast6/Area16"]
+visible = false
+position = Vector2( 192.1, -192.098 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="Bottom"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area17" type="Area2D" parent="Bottom/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/RayCast7/Area17"]
+position = Vector2( 222, -222 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="Bottom/RayCast7/Area17"]
+visible = false
+position = Vector2( 222.1, -222.098 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="Left" type="Node2D" parent="."]
+rotation = 3.92699
+
+[node name="RayCast1" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area21" type="Area2D" parent="Left/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast1/Area21"]
+position = Vector2( 31.5, -31.5 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Left/RayCast1/Area21"]
+visible = false
+position = Vector2( 31, -31 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area22" type="Area2D" parent="Left/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast2/Area22"]
+position = Vector2( 63, -63 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="Left/RayCast2/Area22"]
+visible = false
+position = Vector2( 62.7096, -62.7095 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 90, -90 )
+
+[node name="Area23" type="Area2D" parent="Left/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast3/Area23"]
+position = Vector2( 95, -95 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Left/RayCast3/Area23"]
+visible = false
+position = Vector2( 94.6998, -94.6996 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area24" type="Area2D" parent="Left/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast4/Area24"]
+position = Vector2( 128, -128 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="Left/RayCast4/Area24"]
+visible = false
+position = Vector2( 128.093, -128.093 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area25" type="Area2D" parent="Left/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast5/Area25"]
+position = Vector2( 159, -159 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="Left/RayCast5/Area25"]
+visible = false
+position = Vector2( 158.961, -158.961 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area26" type="Area2D" parent="Left/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast6/Area26"]
+position = Vector2( 191.362, -191.362 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="Left/RayCast6/Area26"]
+visible = false
+position = Vector2( 190.951, -190.951 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="Left"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area27" type="Area2D" parent="Left/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/RayCast7/Area27"]
+position = Vector2( 222, -222 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="Left/RayCast7/Area27"]
+visible = false
+position = Vector2( 222.38, -222.38 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="Top" type="Node2D" parent="."]
+rotation = 5.49779
+
+[node name="RayCast1" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 30, -30 )
+
+[node name="Area31" type="Area2D" parent="Top/RayCast1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast1/Area31"]
+position = Vector2( 31.5, -31.5 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Top/RayCast1/Area31"]
+visible = false
+position = Vector2( 31.5189, -31.5191 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast2" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 60, -60 )
+
+[node name="Area32" type="Area2D" parent="Top/RayCast2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast2/Area32"]
+position = Vector2( 63, -63 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="Top/RayCast2/Area32"]
+visible = false
+position = Vector2( 62.4501, -62.2836 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast3" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 90, -90 )
+
+[node name="Area33" type="Area2D" parent="Top/RayCast3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast3/Area33"]
+position = Vector2( 95, -95 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Top/RayCast3/Area33"]
+visible = false
+position = Vector2( 94.923, -94.7566 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast4" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 130, -130 )
+
+[node name="Area34" type="Area2D" parent="Top/RayCast4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast4/Area34"]
+position = Vector2( 128.315, -127.685 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="Top/RayCast4/Area34"]
+visible = false
+position = Vector2( 128.031, -127.865 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast5" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 160, -160 )
+
+[node name="Area35" type="Area2D" parent="Top/RayCast5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast5/Area35"]
+position = Vector2( 159, -159 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="Top/RayCast5/Area35"]
+visible = false
+position = Vector2( 159.285, -159.119 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast6" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 190, -190 )
+
+[node name="Area36" type="Area2D" parent="Top/RayCast6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast6/Area36"]
+position = Vector2( 191.362, -191.362 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="Top/RayCast6/Area36"]
+visible = false
+position = Vector2( 191.395, -191.229 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="RayCast7" type="RayCast2D" parent="Top"]
+enabled = true
+cast_to = Vector2( 220, -220 )
+
+[node name="Area37" type="Area2D" parent="Top/RayCast7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/RayCast7/Area37"]
+position = Vector2( 222, -222 )
+rotation = 0.785398
+scale = Vector2( 1.2, 1.2 )
+shape = SubResource( 4 )
+
+[node name="Sprite7" type="Sprite" parent="Top/RayCast7/Area37"]
+visible = false
+position = Vector2( 221.922, -222.131 )
+rotation = 0.785398
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="KillCast" type="RayCast2D" parent="."]
+position = Vector2( 0, -18.9167 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+pitch_scale = 0.8
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast1/Area1" to="." method="_on_Area1_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast1/Area1" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast2/Area2" to="." method="_on_Area2_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast2/Area2" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast3/Area3" to="." method="_on_Area3_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast3/Area3" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast4/Area4" to="." method="_on_Area4_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast4/Area4" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast5/Area5" to="." method="_on_Area5_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast5/Area5" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast6/Area6" to="." method="_on_Area6_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast6/Area6" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Right/RayCast7/Area7" to="." method="_on_Area7_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RayCast7/Area7" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast1/Area41" to="." method="_on_Area41_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast1/Area41" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast2/Area42" to="." method="_on_Area42_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast2/Area42" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast3/Area43" to="." method="_on_Area43_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast3/Area43" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast4/Area44" to="." method="_on_Area44_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast4/Area44" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast5/Area45" to="." method="_on_Area45_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast5/Area45" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast6/Area46" to="." method="_on_Area46_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast6/Area46" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopRight/RayCast7/Area47" to="." method="_on_Area47_mouse_entered"]
+[connection signal="mouse_exited" from="TopRight/RayCast7/Area47" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast1/Area51" to="." method="_on_Area51_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast1/Area51" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast2/Area52" to="." method="_on_Area52_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast2/Area52" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast3/Area53" to="." method="_on_Area53_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast3/Area53" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast4/Area54" to="." method="_on_Area54_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast4/Area54" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast5/Area55" to="." method="_on_Area55_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast5/Area55" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast6/Area56" to="." method="_on_Area56_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast6/Area56" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomRight/RayCast7/Area57" to="." method="_on_Area57_mouse_entered"]
+[connection signal="mouse_exited" from="BottomRight/RayCast7/Area57" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast1/Area61" to="." method="_on_Area61_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast1/Area61" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast2/Area62" to="." method="_on_Area62_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast2/Area62" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast3/Area63" to="." method="_on_Area63_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast3/Area63" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast4/Area64" to="." method="_on_Area64_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast4/Area64" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast5/Area65" to="." method="_on_Area65_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast5/Area65" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast6/Area66" to="." method="_on_Area66_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast6/Area66" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="BottomLeft/RayCast7/Area67" to="." method="_on_Area67_mouse_entered"]
+[connection signal="mouse_exited" from="BottomLeft/RayCast7/Area67" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast1/Area71" to="." method="_on_Area71_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast1/Area71" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast2/Area72" to="." method="_on_Area72_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast2/Area72" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast3/Area73" to="." method="_on_Area73_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast3/Area73" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast4/Area74" to="." method="_on_Area74_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast4/Area74" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast5/Area75" to="." method="_on_Area75_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast5/Area75" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast6/Area76" to="." method="_on_Area76_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast6/Area76" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="TopLeft/RayCast7/Area77" to="." method="_on_Area77_mouse_entered"]
+[connection signal="mouse_exited" from="TopLeft/RayCast7/Area77" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast1/Area11" to="." method="_on_Area11_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast1/Area11" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast2/Area12" to="." method="_on_Area12_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast2/Area12" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast3/Area13" to="." method="_on_Area13_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast3/Area13" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast4/Area14" to="." method="_on_Area14_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast4/Area14" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast5/Area15" to="." method="_on_Area15_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast5/Area15" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast6/Area16" to="." method="_on_Area16_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast6/Area16" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Bottom/RayCast7/Area17" to="." method="_on_Area17_mouse_entered"]
+[connection signal="mouse_exited" from="Bottom/RayCast7/Area17" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast1/Area21" to="." method="_on_Area21_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast1/Area21" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast2/Area22" to="." method="_on_Area22_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast2/Area22" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast3/Area23" to="." method="_on_Area23_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast3/Area23" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast4/Area24" to="." method="_on_Area24_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast4/Area24" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast5/Area25" to="." method="_on_Area25_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast5/Area25" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast6/Area26" to="." method="_on_Area26_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast6/Area26" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Left/RayCast7/Area27" to="." method="_on_Area27_mouse_entered"]
+[connection signal="mouse_exited" from="Left/RayCast7/Area27" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast1/Area31" to="." method="_on_Area31_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast1/Area31" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast2/Area32" to="." method="_on_Area32_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast2/Area32" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast3/Area33" to="." method="_on_Area33_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast3/Area33" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast4/Area34" to="." method="_on_Area34_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast4/Area34" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast5/Area35" to="." method="_on_Area35_mouse_entered"]
+[connection signal="mouse_entered" from="Top/RayCast6/Area36" to="." method="_on_Area36_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast6/Area36" to="." method="mouse_exited"]
+[connection signal="mouse_entered" from="Top/RayCast7/Area37" to="." method="_on_Area37_mouse_entered"]
+[connection signal="mouse_exited" from="Top/RayCast7/Area37" to="." method="mouse_exited"]

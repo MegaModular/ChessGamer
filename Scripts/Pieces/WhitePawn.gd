@@ -27,8 +27,10 @@ signal piece_taken(object)
 #$RayCast2D
 
 func _ready():
+	turn_off_at_start()
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("white_piece_taken", self, "piece_taken")
+	self.connect("piece_taken", self.get_parent(), "white_piece_taken")
 	direction = Vector2()
 	$Move/CollisionShape2D.disabled = true
 	$DoubleMove/CollisionShape2D.disabled = true
@@ -37,10 +39,35 @@ func _ready():
 	grid = get_parent()
 	type = get_parent().PLAYER
 
+func turn_off_at_start():
+	$Move/CollisionShape2D/Sprite.visible = false
+	$DoubleMove/CollisionShape2D/Sprite2.visible = false
+	$LeftAttackArea/CollisionShape2D/Sprite4.visible = false
+	$RightAttackArea/CollisionShape2D/Sprite3.visible = false
+
+func turn_on_locations():
+	if $Move/CollisionShape2D.disabled == false:
+		$Move/CollisionShape2D/Sprite.visible = true
+	else:
+		$Move/CollisionShape2D/Sprite.visible = false
+	if $DoubleMove/CollisionShape2D.disabled == false:
+		$DoubleMove/CollisionShape2D/Sprite2.visible = true
+	else:
+		$DoubleMove/CollisionShape2D/Sprite2.visible = false
+	if $RightAttackArea/CollisionShape2D.disabled == false:
+		$RightAttackArea/CollisionShape2D/Sprite3.visible = true
+	else:
+		$RightAttackArea/CollisionShape2D/Sprite3.visible = false
+	if $LeftAttackArea/CollisionShape2D.disabled == false:
+		$LeftAttackArea/CollisionShape2D/Sprite4.visible = true
+	else:
+		$LeftAttackArea/CollisionShape2D/Sprite4.visible = false
+
 func _process(_delta):
 	select()
 	handle_turns()
 	activate_areas()
+	turn_on_locations()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB") and able_to_double_move and infotransfer.selected == self:
@@ -53,6 +80,7 @@ func _physics_process(delta):
 			self.position = target_pos
 			kill_piece()
 			infotransfer.selected = null
+			$MoveSound.play()
 			infotransfer.turn = "black"
 			direction = Vector2()
 

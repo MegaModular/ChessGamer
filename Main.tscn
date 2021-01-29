@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Pieces/WhitePawn.tscn" type="PackedScene" id=2]
@@ -10,6 +10,17 @@
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Pieces/BlackBishop.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Pieces/WhiteRook.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Pieces/BlackRook.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Pieces/WhiteQueen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Pieces/BlackQueen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Pieces/WhiteKing.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Pieces/BlackKing.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Pieces/WhiteKnight.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Pieces/BlackKnight.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Assets/TurnIndicator.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sounds/piece taken.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/bonk.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/Win Screen.tscn" type="PackedScene" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 253.94, 18.7661 )
@@ -18,26 +29,36 @@ extents = Vector2( 253.94, 18.7661 )
 extents = Vector2( 252.605, 22.1032 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 501.158, 15 )
+extents = Vector2( 501.158, 158.969 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 15, 500 )
+extents = Vector2( 145.913, 500 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15, 500 )
+extents = Vector2( 145.002, 500 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 500, 15 )
+extents = Vector2( 500, 78.713 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 255.891, 31.1189 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="SimpleSignals" type="Node2D" parent="."]
 script = ExtResource( 6 )
 
+[node name="KillSound" type="AudioStreamPlayer" parent="SimpleSignals"]
+stream = ExtResource( 19 )
+volume_db = -10.0
+
+[node name="Bonk" type="AudioStreamPlayer" parent="SimpleSignals"]
+stream = ExtResource( 20 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( 0, 1, 0, 1, 0, 0, 2, 1, 0, 3, 0, 0, 4, 1, 0, 5, 0, 0, 6, 1, 0, 7, 0, 0, 65536, 0, 0, 65537, 1, 0, 65538, 0, 0, 65539, 1, 0, 65540, 0, 0, 65541, 1, 0, 65542, 0, 0, 65543, 1, 0, 131072, 1, 0, 131073, 0, 0, 131074, 1, 0, 131075, 0, 0, 131076, 1, 0, 131077, 0, 0, 131078, 1, 0, 131079, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 0, 0, 196611, 1, 0, 196612, 0, 0, 196613, 1, 0, 196614, 0, 0, 196615, 1, 0, 262144, 1, 0, 262145, 0, 0, 262146, 1, 0, 262147, 0, 0, 262148, 1, 0, 262149, 0, 0, 262150, 1, 0, 262151, 0, 0, 327680, 0, 0, 327681, 1, 0, 327682, 0, 0, 327683, 1, 0, 327684, 0, 0, 327685, 1, 0, 327686, 0, 0, 327687, 1, 0, 393216, 1, 0, 393217, 0, 0, 393218, 1, 0, 393219, 0, 0, 393220, 1, 0, 393221, 0, 0, 393222, 1, 0, 393223, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 0, 0, 458755, 1, 0, 458756, 0, 0, 458757, 1, 0, 458758, 0, 0, 458759, 1, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 0, 0, 3, 1, 0, 4, 0, 0, 5, 1, 0, 6, 0, 0, 7, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 1, 0, 65539, 0, 0, 65540, 1, 0, 65541, 0, 0, 65542, 1, 0, 65543, 0, 0, 131072, 0, 0, 131073, 1, 0, 131074, 0, 0, 131075, 1, 0, 131076, 0, 0, 131077, 1, 0, 131078, 0, 0, 131079, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 1, 0, 196611, 0, 0, 196612, 1, 0, 196613, 0, 0, 196614, 1, 0, 196615, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 1, 0, 262148, 0, 0, 262149, 1, 0, 262150, 0, 0, 262151, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 1, 0, 327683, 0, 0, 327684, 1, 0, 327685, 0, 0, 327686, 1, 0, 327687, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 0, 0, 393219, 1, 0, 393220, 0, 0, 393221, 1, 0, 393222, 0, 0, 393223, 1, 0, 458752, 1, 0, 458753, 0, 0, 458754, 1, 0, 458755, 0, 0, 458756, 1, 0, 458757, 0, 0, 458758, 1, 0, 458759, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="GridVisualizer" type="Node2D" parent="TileMap"]
@@ -101,24 +122,75 @@ position = Vector2( 479.554, 99.5335 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop" parent="TileMap" instance=ExtResource( 7 )]
-position = Vector2( 160.672, 480.989 )
+position = Vector2( 160.142, 476.104 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 350.954, 478.606 )
+position = Vector2( 352.606, 477.963 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 159.569, 30.9197 )
+position = Vector2( 160.983, 27.3842 )
 scale = Vector2( 2, 2 )
 
 [node name="BlackBishop2" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 350.851, 29.3319 )
+position = Vector2( 351.558, 30.0391 )
 scale = Vector2( 2, 2 )
 
-[node name="WhiteRook" parent="TileMap" instance=ExtResource( 10 )]
+[node name="WhiteRook" parent="TileMap" groups=[
+"rightrook",
+] instance=ExtResource( 10 )]
 position = Vector2( 478.061, 480.44 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteRook2" parent="TileMap" groups=[
+"leftrook",
+] instance=ExtResource( 10 )]
+position = Vector2( 32.061, 478.44 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackRook" parent="TileMap" groups=[
+"leftrook",
+] instance=ExtResource( 11 )]
+position = Vector2( 30.9543, 30.1606 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackRook2" parent="TileMap" groups=[
+"rightrook",
+] instance=ExtResource( 11 )]
+position = Vector2( 479.285, 32.539 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackQueen" parent="TileMap" instance=ExtResource( 13 )]
+position = Vector2( 224.492, 30.5983 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackKing" parent="TileMap" instance=ExtResource( 15 )]
+position = Vector2( 287.658, 32.7035 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteKnight" parent="TileMap" instance=ExtResource( 16 )]
+position = Vector2( 96.117, 478.52 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteKnight2" parent="TileMap" instance=ExtResource( 16 )]
+position = Vector2( 413.635, 480.899 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackKnight" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 95.4871, 34.4574 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackKnight2" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 414.758, 33.0362 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteQueen" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 223.173, 478.911 )
+scale = Vector2( 1.4, 1.4 )
+
+[node name="WhiteKing" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 288.004, 479.437 )
 scale = Vector2( 1.42, 1.42 )
 
 [node name="EnPassantArea_WhitePawn" type="Area2D" parent="."]
@@ -143,6 +215,12 @@ shape = SubResource( 2 )
 position = Vector2( 256.063, 268.326 )
 current = true
 zoom = Vector2( 0.9, 0.9 )
+
+[node name="Control" parent="Camera2D" instance=ExtResource( 21 )]
+margin_left = -77.2877
+margin_top = -22.6414
+margin_right = -77.2877
+margin_bottom = -22.6414
 
 [node name="Letters" type="Node" parent="."]
 
@@ -319,21 +397,22 @@ __meta__ = {
 }
 
 [node name="Border" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
-position = Vector2( 256.063, -17.4614 )
+position = Vector2( 255.222, -161.255 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
-position = Vector2( -14.2078, 260.335 )
+position = Vector2( -145.27, 252.417 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
-position = Vector2( 525.906, 260.335 )
+position = Vector2( 657.388, 263.005 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
-position = Vector2( 256.063, 527.46 )
+position = Vector2( 256.063, 590.714 )
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -342,6 +421,21 @@ modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 256.248, 254.192 )
 scale = Vector2( 9.00775, 8.94349 )
 texture = ExtResource( 8 )
+
+[node name="TurnIndicator" parent="." instance=ExtResource( 18 )]
+position = Vector2( -108.69, 263.706 )
+
+[node name="Row 1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Row 1"]
+position = Vector2( 256.211, 481.706 )
+shape = SubResource( 7 )
+
+[node name="Row 8" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Row 8"]
+position = Vector2( 256.878, 31.1973 )
+shape = SubResource( 7 )
 [connection signal="piece_taken" from="TileMap/WhitePawn" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhitePawn2" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhitePawn3" to="SimpleSignals" method="white_piece_taken"]
@@ -362,6 +456,18 @@ texture = ExtResource( 8 )
 [connection signal="piece_taken" from="TileMap/WhiteBishop2" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/BlackBishop" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/BlackBishop2" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteRook" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteRook2" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackRook" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackRook2" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackQueen" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackKing" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteKnight" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteKnight2" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackKnight" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackKnight2" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteQueen" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/WhiteKing" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="body_entered" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_entered"]
 [connection signal="body_exited" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_exited"]
 [connection signal="body_entered" from="EnPassantArea_BlackPawn" to="SimpleSignals" method="_on_EnPassantArea_BlackPawn_body_entered"]

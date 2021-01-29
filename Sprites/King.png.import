@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LocationMove.png-f140cc00ddb889c30575fa663adc7897.stex"
+path="res://.import/King.png-834b3215d9f76fadf05518428079feba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/LocationMove.png"
-dest_files=[ "res://.import/LocationMove.png-f140cc00ddb889c30575fa663adc7897.stex" ]
+source_file="res://Sprites/King.png"
+dest_files=[ "res://.import/King.png-834b3215d9f76fadf05518428079feba.stex" ]
 
 [params]
 
