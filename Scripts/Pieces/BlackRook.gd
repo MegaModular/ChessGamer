@@ -25,6 +25,7 @@ func _ready():
 	var check_for_castles = get_tree().get_root().find_node("BlackKing", true, false)
 	check_for_castles.connect("castling", self, "handle_castling")
 	direction = Vector2()
+	self.connect("piece_taken", $"../../SimpleSignals", "black_piece_taken")
 	grid = get_parent()
 	type = get_parent().PLAYER
 	update_areas()

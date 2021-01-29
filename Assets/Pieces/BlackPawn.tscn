@@ -25,6 +25,7 @@ extents = Vector2( 13, 13 )
 
 [node name="BlackPawn" type="KinematicBody2D" groups=[
 "BlackPiece",
+"Pawn",
 ]]
 script = ExtResource( 2 )
 

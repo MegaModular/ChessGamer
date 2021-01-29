@@ -21,6 +21,9 @@ margin_left = -482.818
 margin_top = -287.788
 margin_right = -442.818
 margin_bottom = -247.788
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="WhiteWins"]
 margin_left = 122.944

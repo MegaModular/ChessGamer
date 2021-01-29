@@ -472,3 +472,5 @@ shape = SubResource( 7 )
 [connection signal="body_exited" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_exited"]
 [connection signal="body_entered" from="EnPassantArea_BlackPawn" to="SimpleSignals" method="_on_EnPassantArea_BlackPawn_body_entered"]
 [connection signal="body_exited" from="EnPassantArea_BlackPawn" to="SimpleSignals" method="_on_EnPassantArea_BlackPawn_body_exited"]
+[connection signal="body_entered" from="Row 1" to="SimpleSignals" method="_on_Row_1_body_entered"]
+[connection signal="body_entered" from="Row 8" to="SimpleSignals" method="_on_Row_8_body_entered"]

@@ -23,6 +23,7 @@ extents = Vector2( 13, 13 )
 extents = Vector2( 13, 13 )
 
 [node name="Pawn" type="KinematicBody2D" groups=[
+"Pawn",
 "WhitePiece",
 ]]
 scale = Vector2( 2, 2 )

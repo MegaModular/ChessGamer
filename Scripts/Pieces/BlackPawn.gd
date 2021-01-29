@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var infotransfer = $"/root/Infotransfer"
+onready var queen = preload("res://Assets/Pieces/BlackQueen.tscn")
 
 var mouse_in_area = false
 
@@ -13,7 +14,7 @@ const DOWN = Vector2(0, 1)
 const LEFT = Vector2(-1, 0)
 const RIGHT = Vector2(1, 0)
 
-var able_to_double_move = true
+export var able_to_double_move = true
 
 var type 
 var grid
@@ -26,11 +27,13 @@ const MAX_SPEED = 400
 signal piece_taken(object)
 
 func _ready():
+	var promote = get_tree().get_root().find_node("SimpleSignals", true, false)
+	promote.connect("promote", self, "promote")
 	turn_off_at_start()
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("black_piece_taken", self, "piece_taken")
 	direction = Vector2()
-	self.connect("piece_taken", self.get_parent(), "black_piece_taken")
+	self.connect("piece_taken", $"../../SimpleSignals", "black_piece_taken")
 	$Move/CollisionShape2D.disabled = true
 	$DoubleMove/CollisionShape2D.disabled = true
 	$LeftAttackArea/CollisionShape2D.disabled = true
@@ -41,6 +44,16 @@ func _ready():
 func handle_black_piece_taken(obj):
 	if obj == self:
 		infotransfer.white_score += 1
+		self.queue_free()
+
+func promote(ee):
+	if ee == self:
+		var queeninstance = queen.instance()
+		get_parent().add_child(queeninstance)
+		queeninstance.scale = Vector2(1.42, 1.42)
+		queeninstance.position = grid.world_to_map(self.global_position)
+		queeninstance.position = grid.map_to_world(queeninstance.position) + grid.half_tile_size
+		queeninstance.connect("piece_taken", $"../../SimpleSignals", "black_piece_taken")
 		self.queue_free()
 
 func _process(_delta):

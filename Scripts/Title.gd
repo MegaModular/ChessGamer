@@ -6,7 +6,18 @@ signal pizza
 func _on_Button_pressed():
 	get_tree().change_scene("res://Main.tscn")
 	emit_signal("pizza")
-
+#POOTIS POW HAH0A I AKM MIKAL I LIKE KAIL SHIT WINDOW PISS LITTLE BABY YOU ARE LTITLE BISS PABBY what the the fuck did 
+#you just dsay about me you little shit I will have you know that I have servered 100 years in the (andre here! ya what
+# he said) military and I will use the full extend of my knowlege to wipe your face off the (andre again! damn hes
+# roasting your ass b) the earth like I wipe my ass on the toilet (andre again! did u know ur dumb?) because you are
+# nothing more than a little turd to me  you are the most pathetic little shit that I have ever met in my life I don't 
+#even know how it is possible for somebody to be as fucking stupid as you and your dumb ass you are literally as
+# incompetitent and stupid in real life as your scripting, I don't think I have ever met anybody more stupid
+# and worthless in my life, you not only suck at leg of legands but your legs are weak and you closed the door too early
+# in left 4 dead you should die like bill was left to die because he is a stupid robot, I don't think I have ever seen a
+# person more idiotic and retarde then you, you little shit, you are the most imbicile little shitest shit I have seen
+# since lightning mcqueen execept instead of being fast and cool your fat and lame. you think this is a joke but this 
+#is not you are genuinely a little shit and I hope you die. - cunt
 
 
 

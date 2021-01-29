@@ -25,6 +25,7 @@ func _ready():
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("white_piece_taken", self, "piece_taken")
 	direction = Vector2()
+	self.connect("piece_taken", $"../../SimpleSignals", "white_piece_taken")
 	grid = get_parent()
 	type = get_parent().PLAYER
 	update_areas()

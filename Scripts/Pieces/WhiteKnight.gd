@@ -25,6 +25,7 @@ func _ready():
 	piece_taken_check.connect("white_piece_taken", self, "piece_taken")
 	direction = Vector2()
 	grid = get_parent()
+	self.connect("piece_taken", $"../../SimpleSignals", "white_piece_taken")
 	type = get_parent().PLAYER
 	update_areas()
 

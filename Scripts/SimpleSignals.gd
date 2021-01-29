@@ -6,6 +6,8 @@ var white_piece_taken
 signal white_piece_taken() 
 signal black_piece_taken()
 
+signal promote()
+
 var chance_to_bonk = 0.1
 var bonk_rng = 0
 
@@ -40,3 +42,12 @@ func _on_EnPassantArea_BlackPawn_body_entered(body):
 func _on_EnPassantArea_BlackPawn_body_exited(body):
 	pass # Replace with function body.
 
+
+
+func _on_Row_1_body_entered(body):
+	if body.is_in_group("Pawn") and body.is_in_group("BlackPiece"):
+		emit_signal("promote", body)
+
+func _on_Row_8_body_entered(body):
+	if body.is_in_group("Pawn") and body.is_in_group("WhitePiece"):
+		emit_signal("promote", body)
