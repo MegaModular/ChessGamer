@@ -21,6 +21,13 @@ func _on_Button_pressed():
 
 
 
+func _on_HordeChess_pressed():
+	get_tree().change_scene("res://Scenes/HordeChess.tscn")
+
+
+func _on_Button3_pressed():
+	get_tree().change_scene("res://Scenes/China Vs Mongolia.tscn")
+
 
 
 
@@ -1258,3 +1265,4 @@ func _on_Button_pressed():
 
 func _ready():
 	print("blake was there")
+

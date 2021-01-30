@@ -20,6 +20,7 @@ signal piece_taken(object)
 #$RayCast2D
 
 func _ready():
+	infotransfer.white_piece_total += 3
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("white_piece_taken", self, "piece_taken")
 	self.connect("piece_taken", $"../../SimpleSignals", "white_piece_taken")
@@ -179,6 +180,7 @@ func update_areas():\
 
 func piece_taken(obj):
 	if self == obj:
+		infotransfer.white_piece_total -= 3
 		queue_free()
 
 func _on_Area2D_mouse_entered():

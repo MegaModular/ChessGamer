@@ -20,6 +20,7 @@ signal piece_taken(object)
 signal castling()
 
 func _ready():
+	infotransfer.black_piece_total += 3
 	update_areas()
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("black_piece_taken", self, "piece_taken")
@@ -89,6 +90,7 @@ func update_areas():
 
 func piece_taken(obj):
 	if self == obj:
+		infotransfer.black_piece_total -= 3
 		queue_free()
 
 func _on_Area2D_mouse_entered():

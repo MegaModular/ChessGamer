@@ -13,11 +13,8 @@ var left_rook_has_moved : bool = false
 
 var turn = "white" # "black"
 
-var white_score = 0
-var black_score = 0
+var white_piece_total = 0
+var black_piece_total = 0
 
 var white_win = false
 var black_win = false
-
-func _ready():
-	pass

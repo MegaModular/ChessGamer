@@ -1,25 +1,21 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://Assets/Tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Pieces/WhitePawn.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Pieces/BlackPawn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/SimpleSignals.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Pieces/WhiteBishop.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Pieces/BlackBishop.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/Pieces/WhiteRook.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Pieces/BlackRook.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Pieces/WhiteQueen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Pieces/BlackQueen.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Pieces/WhiteKing.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/Pieces/BlackKing.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/Pieces/WhiteKnight.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/Pieces/BlackKnight.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/TurnIndicator.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Sounds/piece taken.wav" type="AudioStream" id=19]
-[ext_resource path="res://Sounds/bonk.wav" type="AudioStream" id=20]
-[ext_resource path="res://Assets/Win Screen.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Fonts/Pineapple Grass.otf" type="DynamicFontData" id=22]
+[ext_resource path="res://Sounds/piece taken.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/bonk.wav" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/Pineapple Grass.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Pieces/WhiteQueen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Pieces/WhiteRook.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Pieces/BlackKing.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Win Screen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/TurnIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Pieces/WhitePawn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Pieces/BlackPawn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Pieces/WhiteBishop.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Pieces/WhiteKing.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Pieces/WhiteKnight.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Assets/Tilemap.tres" type="TileSet" id=18]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/SimpleSignals.gd" type="Script" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 253.94, 18.7661 )
@@ -44,155 +40,266 @@ extents = Vector2( 255.891, 31.1189 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 50
-font_data = ExtResource( 22 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 50
-font_data = ExtResource( 22 )
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="SimpleSignals" type="Node2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 20 )
 
 [node name="KillSound" type="AudioStreamPlayer" parent="SimpleSignals"]
-stream = ExtResource( 19 )
+stream = ExtResource( 1 )
 volume_db = -10.0
 
 [node name="Bonk" type="AudioStreamPlayer" parent="SimpleSignals"]
-stream = ExtResource( 20 )
+stream = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 18 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 0, 0, 3, 1, 0, 4, 0, 0, 5, 1, 0, 6, 0, 0, 7, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 1, 0, 65539, 0, 0, 65540, 1, 0, 65541, 0, 0, 65542, 1, 0, 65543, 0, 0, 131072, 0, 0, 131073, 1, 0, 131074, 0, 0, 131075, 1, 0, 131076, 0, 0, 131077, 1, 0, 131078, 0, 0, 131079, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 1, 0, 196611, 0, 0, 196612, 1, 0, 196613, 0, 0, 196614, 1, 0, 196615, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 1, 0, 262148, 0, 0, 262149, 1, 0, 262150, 0, 0, 262151, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 1, 0, 327683, 0, 0, 327684, 1, 0, 327685, 0, 0, 327686, 1, 0, 327687, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 0, 0, 393219, 1, 0, 393220, 0, 0, 393221, 1, 0, 393222, 0, 0, 393223, 1, 0, 458752, 1, 0, 458753, 0, 0, 458754, 1, 0, 458755, 0, 0, 458756, 1, 0, 458757, 0, 0, 458758, 1, 0, 458759, 0, 0 )
-script = ExtResource( 3 )
+script = ExtResource( 19 )
 
-[node name="WhitePawn" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 32.2227, 417.428 )
 
-[node name="WhitePawn2" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn2" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 95.1552, 416.721 )
 
-[node name="WhitePawn3" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn3" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 159.66, 417.331 )
 
-[node name="WhitePawn4" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn4" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 223.253, 417.233 )
 
-[node name="WhitePawn5" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn5" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 287.39, 416.806 )
 
-[node name="WhitePawn6" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn6" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 353.671, 417.428 )
 
-[node name="WhitePawn7" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn7" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 417.167, 417.599 )
 
-[node name="WhitePawn8" parent="TileMap" instance=ExtResource( 2 )]
+[node name="WhitePawn8" parent="TileMap" instance=ExtResource( 10 )]
 position = Vector2( 479.398, 416.334 )
 
-[node name="BlackPawn" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 32.1132, 97.7713 )
+[node name="BlackPawn" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 33.6132, 93.7713 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn2" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 96.0213, 98.044 )
+[node name="BlackPawn2" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 97.5213, 94.044 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn3" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 159.768, 98.9461 )
+[node name="BlackPawn3" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 161.268, 94.9461 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn4" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 224.189, 97.1524 )
+[node name="BlackPawn4" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 225.689, 93.1524 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn5" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 288.403, 98.1961 )
+[node name="BlackPawn5" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 289.903, 94.1961 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn6" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 352.606, 97.7398 )
+[node name="BlackPawn6" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 354.106, 93.7398 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn7" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 416.589, 99.5335 )
+[node name="BlackPawn7" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 418.089, 95.5335 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="BlackPawn8" parent="TileMap" instance=ExtResource( 5 )]
-position = Vector2( 479.554, 99.5335 )
+[node name="BlackPawn8" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 481.054, 95.5335 )
 scale = Vector2( 2, 2 )
+able_to_double_move = false
 
-[node name="WhiteBishop" parent="TileMap" instance=ExtResource( 7 )]
+[node name="BlackPawn25" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 352.606, 30.7398 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn26" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 416.589, 32.5335 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn27" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 479.554, 32.5335 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn9" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 32.2784, 159.846 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn10" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 96.1865, 160.119 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn11" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 159.933, 161.021 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn12" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 224.354, 159.227 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn28" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 32.2784, 28.3459 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn29" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 96.1865, 28.6186 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn30" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 159.933, 29.5207 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn31" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 224.354, 27.727 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn13" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 288.568, 160.271 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn14" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 352.771, 159.814 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn15" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 416.754, 161.608 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn16" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 479.719, 161.608 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn17" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 32.2784, 227.923 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn18" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 96.1865, 228.195 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn19" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 159.933, 229.098 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn34" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 97.6007, 290.421 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn35" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 161.347, 291.323 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn20" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 224.354, 227.304 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn21" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 288.568, 228.348 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn22" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 352.771, 227.891 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn23" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 416.754, 229.685 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn32" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 351.357, 285.167 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn33" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 415.34, 286.961 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="BlackPawn24" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 479.719, 229.685 )
+scale = Vector2( 2, 2 )
+able_to_double_move = false
+
+[node name="WhiteBishop" parent="TileMap" instance=ExtResource( 15 )]
 position = Vector2( 160.142, 476.104 )
 scale = Vector2( 2, 2 )
 
-[node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 7 )]
+[node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 15 )]
 position = Vector2( 352.606, 477.963 )
-scale = Vector2( 2, 2 )
-
-[node name="BlackBishop" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 160.983, 27.3842 )
-scale = Vector2( 2, 2 )
-
-[node name="BlackBishop2" parent="TileMap" instance=ExtResource( 9 )]
-position = Vector2( 351.558, 30.0391 )
 scale = Vector2( 2, 2 )
 
 [node name="WhiteRook" parent="TileMap" groups=[
 "rightrook",
-] instance=ExtResource( 10 )]
+] instance=ExtResource( 5 )]
 position = Vector2( 478.061, 480.44 )
 scale = Vector2( 1.42, 1.42 )
 
 [node name="WhiteRook2" parent="TileMap" groups=[
 "leftrook",
-] instance=ExtResource( 10 )]
+] instance=ExtResource( 5 )]
 position = Vector2( 32.061, 478.44 )
 scale = Vector2( 1.42, 1.42 )
 
-[node name="BlackRook" parent="TileMap" groups=[
-"leftrook",
-] instance=ExtResource( 11 )]
-position = Vector2( 30.9543, 30.1606 )
-scale = Vector2( 1.42, 1.42 )
-
-[node name="BlackRook2" parent="TileMap" groups=[
-"rightrook",
-] instance=ExtResource( 11 )]
-position = Vector2( 479.285, 32.539 )
-scale = Vector2( 1.42, 1.42 )
-
-[node name="BlackQueen" parent="TileMap" instance=ExtResource( 13 )]
-position = Vector2( 224.492, 30.5983 )
-scale = Vector2( 1.42, 1.42 )
-
-[node name="BlackKing" parent="TileMap" instance=ExtResource( 15 )]
+[node name="BlackKing" parent="TileMap" instance=ExtResource( 6 )]
 position = Vector2( 287.658, 32.7035 )
 scale = Vector2( 1.42, 1.42 )
 
-[node name="WhiteKnight" parent="TileMap" instance=ExtResource( 16 )]
+[node name="WhiteKnight" parent="TileMap" instance=ExtResource( 17 )]
 position = Vector2( 96.117, 478.52 )
 scale = Vector2( 1.42, 1.42 )
 
-[node name="WhiteKnight2" parent="TileMap" instance=ExtResource( 16 )]
+[node name="WhiteKnight2" parent="TileMap" instance=ExtResource( 17 )]
 position = Vector2( 413.635, 480.899 )
 scale = Vector2( 1.42, 1.42 )
 
-[node name="BlackKnight" parent="TileMap" instance=ExtResource( 17 )]
-position = Vector2( 95.4871, 34.4574 )
-scale = Vector2( 1.42, 1.42 )
-
-[node name="BlackKnight2" parent="TileMap" instance=ExtResource( 17 )]
-position = Vector2( 414.758, 33.0362 )
-scale = Vector2( 1.42, 1.42 )
-
-[node name="WhiteQueen" parent="TileMap" instance=ExtResource( 12 )]
+[node name="WhiteQueen" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( 223.173, 478.911 )
 scale = Vector2( 1.4, 1.4 )
 
-[node name="WhiteKing" parent="TileMap" instance=ExtResource( 14 )]
+[node name="WhiteKing" parent="TileMap" instance=ExtResource( 16 )]
 position = Vector2( 288.004, 479.437 )
 scale = Vector2( 1.42, 1.42 )
 
@@ -219,7 +326,8 @@ position = Vector2( 256.063, 268.326 )
 current = true
 zoom = Vector2( 0.9, 0.9 )
 
-[node name="Control" parent="Camera2D" instance=ExtResource( 21 )]
+[node name="Control" parent="Camera2D" instance=ExtResource( 8 )]
+visible = false
 margin_left = -31.8519
 margin_top = -3.93249
 margin_right = -31.8519
@@ -418,7 +526,7 @@ shape = SubResource( 5 )
 position = Vector2( 256.063, 590.714 )
 shape = SubResource( 6 )
 
-[node name="TurnIndicator" parent="." instance=ExtResource( 18 )]
+[node name="TurnIndicator" parent="." instance=ExtResource( 9 )]
 position = Vector2( -108.69, 263.706 )
 
 [node name="Row 1" type="Area2D" parent="."]
@@ -468,20 +576,40 @@ __meta__ = {
 [connection signal="piece_taken" from="TileMap/BlackPawn6" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/BlackPawn7" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/BlackPawn8" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn25" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn26" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn27" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn9" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn10" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn11" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn12" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn28" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn29" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn30" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn31" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn13" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn14" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn15" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn16" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn17" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn18" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn19" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn34" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn35" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn20" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn21" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn22" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn23" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn32" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn33" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackPawn24" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteBishop" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteBishop2" to="SimpleSignals" method="white_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackBishop" to="SimpleSignals" method="black_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackBishop2" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteRook" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteRook2" to="SimpleSignals" method="white_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackRook" to="SimpleSignals" method="black_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackRook2" to="SimpleSignals" method="black_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackQueen" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/BlackKing" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteKnight" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteKnight2" to="SimpleSignals" method="white_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackKnight" to="SimpleSignals" method="black_piece_taken"]
-[connection signal="piece_taken" from="TileMap/BlackKnight2" to="SimpleSignals" method="black_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteQueen" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="piece_taken" from="TileMap/WhiteKing" to="SimpleSignals" method="white_piece_taken"]
 [connection signal="body_entered" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_entered"]

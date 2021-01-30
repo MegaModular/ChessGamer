@@ -19,4 +19,26 @@ text = "Normal Chess"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HordeChess" type="Button" parent="."]
+margin_left = 303.0
+margin_top = 438.0
+margin_right = 536.0
+margin_bottom = 563.0
+text = "Horde Chess"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 558.0
+margin_top = 438.0
+margin_right = 742.0
+margin_bottom = 565.0
+text = "China Vs Mongolia"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HordeChess" to="." method="_on_HordeChess_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

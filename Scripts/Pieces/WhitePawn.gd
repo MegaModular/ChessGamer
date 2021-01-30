@@ -28,6 +28,7 @@ signal piece_taken(object)
 #$RayCast2D
 
 func _ready():
+	infotransfer.white_piece_total += 1
 	var promote = get_tree().get_root().find_node("SimpleSignals", true, false)
 	promote.connect("promote", self, "promote")
 	turn_off_at_start()
@@ -50,6 +51,7 @@ func promote(ee):
 		queeninstance.position = grid.world_to_map(self.global_position)
 		queeninstance.position = grid.map_to_world(queeninstance.position) + grid.half_tile_size
 		queeninstance.connect("piece_taken", $"../../SimpleSignals", "white_piece_taken")
+		infotransfer.white_piece_total -= 1
 		self.queue_free()
 
 func turn_off_at_start():
@@ -194,5 +196,6 @@ func _on_LeftAttackArea_mouse_entered():
 
 func piece_taken(obj):
 	if obj == self:
+		infotransfer.white_piece_total -= 1
 		queue_free()
 		

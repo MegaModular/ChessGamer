@@ -20,6 +20,7 @@ signal piece_taken(object)
 #$RayCast2D
 
 func _ready():
+	infotransfer.black_piece_total += 3
 	$KillCast.enabled = true
 	print(self)
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
@@ -179,6 +180,7 @@ func update_areas():
 
 func piece_taken(obj):
 	if self == obj:
+		infotransfer.black_piece_total -= 3
 		queue_free()
 
 func _on_Area2D_mouse_entered():

@@ -20,6 +20,7 @@ signal piece_taken(object)
 #$RayCast2D
 
 func _ready():
+	infotransfer.black_piece_total += 9
 	var piece_taken_check = get_tree().get_root().find_node("SimpleSignals", true, false)
 	piece_taken_check.connect("black_piece_taken", self, "piece_taken")
 	direction = Vector2()
@@ -283,6 +284,7 @@ func turn_off_sprites():
 
 func piece_taken(obj):
 	if self == obj:
+		infotransfer.black_piece_total -= 9
 		queue_free()
 
 func _on_Area2D_mouse_entered():

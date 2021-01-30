@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var infotransfer = $"/root/Infotransfer"
+
 var black_piece_taken
 var white_piece_taken
 
@@ -28,6 +30,10 @@ func white_piece_taken(object):
 		$Bonk.play()
 	else:
 		$KillSound.play()
+
+func _process(_delta):
+	$"../WhitePieceTotal".set_text(str(infotransfer.white_piece_total))
+	$"../BlackPieceTotal".set_text(str(infotransfer.black_piece_total))
 
 #====EnPassant====# 
 func _on_EnPassantArea_WhitePawn_body_entered(body):
