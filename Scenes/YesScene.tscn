@@ -44,6 +44,9 @@ size = 50
 font_data = ExtResource( 4 )
 
 [node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 10.1213 ]
+}
 
 [node name="SimpleSignals" type="Node2D" parent="."]
 script = ExtResource( 13 )

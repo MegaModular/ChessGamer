@@ -5,7 +5,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
-outline_size = 3
+outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
@@ -78,9 +78,9 @@ margin_bottom = 412.0
 text = "Middle Game"
 
 [node name="Label" type="Label" parent="."]
-margin_left = 197.716
+margin_left = 178.976
 margin_top = 86.4194
-margin_right = 850.716
+margin_right = 831.976
 margin_bottom = 437.419
 custom_fonts/font = SubResource( 1 )
 text = "Chessdular
@@ -90,10 +90,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 383.594
-margin_top = 246.5
-margin_right = 1036.59
-margin_bottom = 597.5
+margin_left = 385.481
+margin_top = 323.243
+margin_right = 1038.48
+margin_bottom = 674.243
 custom_fonts/font = SubResource( 2 )
 text = "A Game By Michael
 "

@@ -23,7 +23,7 @@ margin_top = -107.826
 margin_right = 406.126
 margin_bottom = 101.174
 custom_fonts/font = SubResource( 1 )
-text = "White Wins!"
+text = "Black Wins!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,7 +34,7 @@ margin_top = -107.826
 margin_right = 406.126
 margin_bottom = 101.174
 custom_fonts/font = SubResource( 1 )
-text = "Black Wins!"
+text = "White Wins!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
