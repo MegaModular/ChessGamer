@@ -1,11 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Title.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Pineapple Grass.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1023.0
+margin_bottom = 598.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="."]
+[node name="China Vs Mongolia" type="Button" parent="."]
 margin_left = 558.0
 margin_top = 438.0
 margin_right = 742.0
@@ -39,6 +59,57 @@ text = "China Vs Mongolia"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="No Middle" type="Button" parent="."]
+margin_left = 759.0
+margin_top = 438.0
+margin_right = 970.0
+margin_bottom = 565.0
+text = "No Middle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MiddleGame" type="Button" parent="."]
+margin_left = 51.0
+margin_top = 303.0
+margin_right = 260.0
+margin_bottom = 412.0
+text = "Middle Game"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 197.716
+margin_top = 86.4194
+margin_right = 850.716
+margin_bottom = 437.419
+custom_fonts/font = SubResource( 1 )
+text = "Chessdular
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 383.594
+margin_top = 246.5
+margin_right = 1036.59
+margin_bottom = 597.5
+custom_fonts/font = SubResource( 2 )
+text = "A Game By Michael
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="The Big Guns" type="Button" parent="."]
+margin_left = 757.0
+margin_top = 310.0
+margin_right = 967.0
+margin_bottom = 416.0
+text = "The Big Guns"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="HordeChess" to="." method="_on_HordeChess_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="China Vs Mongolia" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="No Middle" to="." method="_on_No_Middle_pressed"]
+[connection signal="pressed" from="MiddleGame" to="." method="_on_MiddleGame_pressed"]
+[connection signal="pressed" from="The Big Guns" to="." method="_on_The_Big_Guns_pressed"]

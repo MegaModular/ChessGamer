@@ -1,0 +1,465 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Assets/Tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Sounds/bonk.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/piece taken.wav" type="AudioStream" id=3]
+[ext_resource path="res://Fonts/Pineapple Grass.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Pieces/BlackKing.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Win Screen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Pieces/WhiteKing.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/TurnIndicator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/SimpleSignals.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Pieces/WhiteBishop.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Pieces/WhiteQueen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Pieces/WhiteKnight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Pieces/WhitePawn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Pieces/BlackBishop.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Pieces/BlackKnight.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Pieces/BlackPawn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Assets/Pieces/BlackQueen.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 253.94, 18.7661 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 252.605, 22.1032 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 501.158, 158.969 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 145.913, 500 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 145.002, 500 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 500, 78.713 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 58.8163, 55.8906 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 255.891, 31.1189 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SimpleSignals" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="KillSound" type="AudioStreamPlayer" parent="SimpleSignals"]
+stream = ExtResource( 3 )
+volume_db = -10.0
+
+[node name="Bonk" type="AudioStreamPlayer" parent="SimpleSignals"]
+stream = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 0, 0, 3, 1, 0, 4, 0, 0, 5, 1, 0, 6, 0, 0, 7, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 1, 0, 65539, 0, 0, 65540, 1, 0, 65541, 0, 0, 65542, 1, 0, 65543, 0, 0, 131072, 0, 0, 131073, 1, 0, 131074, 0, 0, 131075, 1, 0, 131076, 0, 0, 131077, 1, 0, 131078, 0, 0, 131079, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 1, 0, 196611, 0, 0, 196612, 1, 0, 196613, 0, 0, 196614, 1, 0, 196615, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 1, 0, 262148, 0, 0, 262149, 1, 0, 262150, 0, 0, 262151, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 1, 0, 327683, 0, 0, 327684, 1, 0, 327685, 0, 0, 327686, 1, 0, 327687, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 0, 0, 393219, 1, 0, 393220, 0, 0, 393221, 1, 0, 393222, 0, 0, 393223, 1, 0, 458752, 1, 0, 458753, 0, 0, 458754, 1, 0, 458755, 0, 0, 458756, 1, 0, 458757, 0, 0, 458758, 1, 0, 458759, 0, 0 )
+script = ExtResource( 9 )
+
+[node name="WhiteKing" parent="TileMap" instance=ExtResource( 7 )]
+position = Vector2( 288.004, 479.437 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteBishop" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 224.76, 349.627 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="WhiteBishop3" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 161.192, 412.665 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="WhiteBishop4" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 353.485, 413.195 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="WhiteBishop2" parent="TileMap" instance=ExtResource( 11 )]
+position = Vector2( 289.937, 348.878 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="WhiteKnight" parent="TileMap" instance=ExtResource( 13 )]
+position = Vector2( 223.446, 414.365 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="WhiteKnight2" parent="TileMap" instance=ExtResource( 13 )]
+position = Vector2( 289.207, 414.365 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="Pawn" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 31.429, 414.252 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="Pawn2" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 94.1966, 414.724 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="Pawn3" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 160.74, 353.372 )
+scale = Vector2( 2.05, 2.05 )
+able_to_double_move = false
+
+[node name="Pawn4" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 351.618, 349.593 )
+scale = Vector2( 2.05, 2.05 )
+able_to_double_move = false
+
+[node name="Pawn5" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 416.504, 414.479 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="Pawn6" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 479.5, 414.479 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="WhiteQueen" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 224.642, 478.58 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackKing" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 287.658, 32.7035 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackBishop" parent="TileMap" instance=ExtResource( 15 )]
+position = Vector2( 223.586, 156.176 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackBishop2" parent="TileMap" instance=ExtResource( 15 )]
+position = Vector2( 288.325, 156.844 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackBishop3" parent="TileMap" instance=ExtResource( 15 )]
+position = Vector2( 352.398, 93.4388 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackBishop4" parent="TileMap" instance=ExtResource( 15 )]
+position = Vector2( 161.516, 92.104 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackKnight" parent="TileMap" instance=ExtResource( 16 )]
+position = Vector2( 224.86, 94.0452 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackKnight2" parent="TileMap" instance=ExtResource( 16 )]
+position = Vector2( 287.792, 94.7523 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="BlackPawn" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 161.515, 159.856 )
+scale = Vector2( 2.05, 2.05 )
+able_to_double_move = false
+
+[node name="BlackPawn2" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 98.5858, 99.9236 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackPawn3" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 34.9077, 99.9236 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackPawn4" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 481.403, 93.9303 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackPawn5" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 416.976, 96.1778 )
+scale = Vector2( 2.05, 2.05 )
+
+[node name="BlackPawn6" parent="TileMap" instance=ExtResource( 17 )]
+position = Vector2( 350.931, 161.788 )
+scale = Vector2( 2.05, 2.05 )
+able_to_double_move = false
+
+[node name="BlackQueen" parent="TileMap" instance=ExtResource( 18 )]
+position = Vector2( 224, 31 )
+scale = Vector2( 1.42, 1.42 )
+
+[node name="EnPassantArea_WhitePawn" type="Area2D" parent="."]
+visible = false
+position = Vector2( 256.063, 268.326 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnPassantArea_WhitePawn"]
+visible = false
+position = Vector2( -0.66745, -42.0475 )
+shape = SubResource( 1 )
+
+[node name="EnPassantArea_BlackPawn" type="Area2D" parent="."]
+visible = false
+position = Vector2( 256.063, 268.326 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnPassantArea_BlackPawn"]
+visible = false
+position = Vector2( -0.667419, 20.0226 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 256.063, 268.326 )
+current = true
+zoom = Vector2( 0.9, 0.9 )
+
+[node name="Control" parent="Camera2D" instance=ExtResource( 6 )]
+visible = false
+margin_left = -31.8519
+margin_top = -3.93249
+margin_right = -31.8519
+margin_bottom = -3.93249
+
+[node name="Letters" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Letters"]
+margin_left = -16.3266
+margin_top = 473.725
+margin_right = 17.6734
+margin_bottom = 516.725
+text = "1
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Letters"]
+margin_left = -17.3861
+margin_top = 404.86
+margin_right = 16.6139
+margin_bottom = 447.86
+text = "2
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Letters"]
+margin_left = -17.3861
+margin_top = 346.59
+margin_right = 16.6139
+margin_bottom = 389.59
+text = "3
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Letters"]
+margin_left = -17.3861
+margin_top = 283.022
+margin_right = 16.6139
+margin_bottom = 326.022
+text = "4
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Letters"]
+margin_left = -17.3861
+margin_top = 217.335
+margin_right = 16.6139
+margin_bottom = 260.335
+text = "5
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Letters"]
+margin_left = -14.2078
+margin_top = 148.47
+margin_right = 19.7922
+margin_bottom = 191.47
+text = "6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Letters"]
+margin_left = -16.3267
+margin_top = 89.1401
+margin_right = 17.6733
+margin_bottom = 132.14
+text = "7
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Letters"]
+margin_left = -16.3266
+margin_top = 29.8102
+margin_right = 17.6734
+margin_bottom = 72.8102
+text = "8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="Letters"]
+margin_left = 26.0519
+margin_top = 517.163
+margin_right = 60.0519
+margin_bottom = 560.163
+text = "A
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Letters"]
+margin_left = 90.6791
+margin_top = 520.342
+margin_right = 124.679
+margin_bottom = 563.342
+text = "B
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="Letters"]
+margin_left = 156.366
+margin_top = 521.401
+margin_right = 190.366
+margin_bottom = 564.401
+text = "C
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label12" type="Label" parent="Letters"]
+margin_left = 222.053
+margin_top = 520.342
+margin_right = 256.053
+margin_bottom = 563.342
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="Letters"]
+margin_left = 279.264
+margin_top = 521.401
+margin_right = 313.264
+margin_bottom = 564.401
+text = "E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="Letters"]
+margin_left = 344.95
+margin_top = 521.401
+margin_right = 378.95
+margin_bottom = 564.401
+text = "F"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label15" type="Label" parent="Letters"]
+margin_left = 411.696
+margin_top = 522.46
+margin_right = 445.696
+margin_bottom = 565.46
+text = "G
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label16" type="Label" parent="Letters"]
+margin_left = 472.835
+margin_top = 521.401
+margin_right = 506.835
+margin_bottom = 564.401
+text = "H"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2( 255.222, -161.255 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2( -145.27, 252.417 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2( 657.388, 263.005 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2( 256.063, 590.714 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Border"]
+position = Vector2( 256.324, 256.173 )
+shape = SubResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="Border"]
+margin_left = 192.0
+margin_top = 192.0
+margin_right = 321.0
+margin_bottom = 320.0
+color = Color( 0, 0, 0, 0.988235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnIndicator" parent="." instance=ExtResource( 8 )]
+position = Vector2( -108.69, 263.706 )
+
+[node name="Row 1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Row 1"]
+position = Vector2( 256.211, 481.706 )
+shape = SubResource( 7 )
+
+[node name="Row 8" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Row 8"]
+position = Vector2( 256.878, 31.1973 )
+shape = SubResource( 7 )
+
+[node name="WhitePieceTotal" type="Label" parent="."]
+margin_left = 528.036
+margin_top = 453.595
+margin_right = 568.036
+margin_bottom = 512.595
+custom_fonts/font = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackPieceTotal" type="Label" parent="."]
+margin_left = 515.916
+margin_top = 47.4711
+margin_right = 555.916
+margin_bottom = 61.4711
+custom_fonts/font = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="piece_taken" from="TileMap/WhiteKing" to="SimpleSignals" method="white_piece_taken"]
+[connection signal="piece_taken" from="TileMap/BlackKing" to="SimpleSignals" method="black_piece_taken"]
+[connection signal="body_entered" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_entered"]
+[connection signal="body_exited" from="EnPassantArea_WhitePawn" to="SimpleSignals" method="_on_EnPassantArea_WhitePawn_body_exited"]
+[connection signal="body_entered" from="EnPassantArea_BlackPawn" to="SimpleSignals" method="_on_EnPassantArea_BlackPawn_body_entered"]
+[connection signal="body_exited" from="EnPassantArea_BlackPawn" to="SimpleSignals" method="_on_EnPassantArea_BlackPawn_body_exited"]
+[connection signal="body_entered" from="Row 1" to="SimpleSignals" method="_on_Row_1_body_entered"]
+[connection signal="body_entered" from="Row 8" to="SimpleSignals" method="_on_Row_8_body_entered"]
